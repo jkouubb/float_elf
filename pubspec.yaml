@@ -1,0 +1,18 @@
+name: float_elf
+description: simple scheme for draggable floating ball in app
+version: 0.0.1
+author: jkouulong@gmail.com
+homepage:
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
