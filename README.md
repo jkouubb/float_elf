@@ -1,4 +1,4 @@
-Language: [English](README.md) | [中文简体](README-ZH.md)
+Language: [English](README.md) | [中文简体](README-CH.md)
 
 # float_elf
 
