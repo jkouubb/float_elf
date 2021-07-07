@@ -1,3 +1,5 @@
+Language: [English](README.md) | [中文简体](README-ZH.md)
+
 # float_elf
 
 float_elf is a simple scheme for draggable floating ball in app, you can custom your own view of your elf and deploy it.
