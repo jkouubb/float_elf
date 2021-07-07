@@ -9,3 +9,7 @@
 # 0.0.3
 
 - fix bug that child is rebuilt when child is feedback and elf is being dragged
+
+# 0.0.4
+
+- add method hasShow

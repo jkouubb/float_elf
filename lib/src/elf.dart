@@ -8,6 +8,8 @@ class Elf {
   static ElfContent? _elfContent;
   static ElfContent? _feedBack;
 
+  static bool get hasShow => _overlayEntry != null;
+
   static void show(BuildContext context, Offset initialPosition, ElfContent elfContent, ElfContent feedBack) {
     if (_overlayEntry != null) {
       _overlayEntry!.remove();
