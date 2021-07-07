@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 typedef ElfContentBuilder = Widget Function(BuildContext buildContext, bool clicked, AnimationController controller);
 
 class ElfContent extends StatefulWidget {
-  ElfContent({@required this.builder});
+  ElfContent({@required this.builder, Key? key}) : super(key: key);
 
   final ElfContentBuilder? builder;
 
@@ -13,6 +13,7 @@ class ElfContent extends StatefulWidget {
 
 class _ElfContentState extends State<ElfContent> with SingleTickerProviderStateMixin {
   bool clicked = false;
+  bool hasDragged = false;
 
   late final AnimationController animationController;
 

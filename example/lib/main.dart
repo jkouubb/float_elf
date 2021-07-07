@@ -23,6 +23,8 @@ class MyHomePage extends StatelessWidget {
 
   final String? title;
 
+  final GlobalKey globalKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +36,7 @@ class MyHomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           ElfContent elfContent = ElfContent(
+            key: globalKey,
             builder: (context, clicked, controller) {
               return AnimatedPhysicalModel(
                 curve: clicked ? Interval(0, 1) : Interval(0.5, 1.0),
@@ -124,7 +127,12 @@ class MyHomePage extends StatelessWidget {
             },
           );
 
-          Elf.show(context, Offset(25, 50), elfContent);
+          Elf.show(
+            context,
+            Offset(25, 50),
+            elfContent,
+            elfContent,
+          );
         },
         child: Icon(Icons.add),
       ),

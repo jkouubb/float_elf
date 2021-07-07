@@ -6,9 +6,9 @@ class Elf {
   static OverlayEntry? _overlayEntry;
 
   static ElfContent? _elfContent;
-  static Widget? _feedBack;
+  static ElfContent? _feedBack;
 
-  static void show(BuildContext context, Offset initialPosition, ElfContent elfContent, [Widget? feedBack]) {
+  static void show(BuildContext context, Offset initialPosition, ElfContent elfContent, ElfContent feedBack) {
     if (_overlayEntry != null) {
       _overlayEntry!.remove();
       _overlayEntry = null;
@@ -23,8 +23,9 @@ class Elf {
           top: initialPosition.dy,
           left: initialPosition.dx,
           child: Draggable(
+            ignoringFeedbackSemantics: !(elfContent.runtimeType == feedBack.runtimeType && elfContent.key == feedBack.key),
             child: elfContent,
-            feedback: feedBack == null ? elfContent : feedBack,
+            feedback: feedBack,
             childWhenDragging: Container(),
             onDragStarted: () {},
             onDragEnd: (DraggableDetails detail) {
