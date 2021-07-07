@@ -1,3 +1,5 @@
+Language: [English](README.md) | [中文简体](README-CH.md)
+
 # float_elf
 
 float_elf是一个非常简单的实现app内部可拖动悬浮球的框架
