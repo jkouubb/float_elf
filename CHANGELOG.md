@@ -13,3 +13,7 @@
 # 0.0.4
 
 - add method hasShow
+
+# 0.0.5
+
+- refactor code
