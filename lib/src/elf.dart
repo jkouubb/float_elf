@@ -5,19 +5,17 @@ import 'elf_content.dart';
 class Elf {
   static OverlayEntry? _overlayEntry;
 
-  static ElfContent? _elfContent;
-  static ElfContent? _feedBack;
+  static ElfPanel? _elfPanel;
 
   static bool get hasShow => _overlayEntry != null;
 
-  static void show(BuildContext context, Offset initialPosition, ElfContent elfContent, ElfContent feedBack) {
+  static void show(BuildContext context, Offset initialPosition, ElfPanel elfPanel) {
     if (_overlayEntry != null) {
       _overlayEntry!.remove();
       _overlayEntry = null;
     }
 
-    _elfContent = elfContent;
-    _feedBack = feedBack;
+    _elfPanel = elfPanel;
 
     _overlayEntry = OverlayEntry(
       builder: (context) {
@@ -25,9 +23,9 @@ class Elf {
           top: initialPosition.dy,
           left: initialPosition.dx,
           child: Draggable(
-            ignoringFeedbackSemantics: !(elfContent.runtimeType == feedBack.runtimeType && elfContent.key == feedBack.key),
-            child: elfContent,
-            feedback: feedBack,
+            ignoringFeedbackSemantics: false,
+            child: elfPanel,
+            feedback: elfPanel,
             childWhenDragging: Container(),
             onDragStarted: () {},
             onDragEnd: (DraggableDetails detail) {
@@ -70,8 +68,9 @@ class Elf {
             onLeave: (data) {},
             builder: (context, incoming, rejected) {
               return Draggable(
-                child: _elfContent!,
-                feedback: _feedBack == null ? _elfContent! : _feedBack!,
+                ignoringFeedbackSemantics: false,
+                child: _elfPanel!,
+                feedback: _elfPanel!,
                 childWhenDragging: Container(),
                 onDragStarted: () {},
                 onDragEnd: (detail) {
